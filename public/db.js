@@ -65,8 +65,5 @@ function checkDatabase() {
   };
 }
 
-// // listen for app when page loads
-// window.addEventListener("load", checkDatabase);
-
 // listen for app coming back online
 window.addEventListener("online", checkDatabase);
