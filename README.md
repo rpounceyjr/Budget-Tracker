@@ -2,7 +2,7 @@
 
 ### **by Roger Pouncey** 
 
-A budgeting PWA that allows the user to add expenses and deposits to their budget with or without an internet connection.
+The Budget Tracker is a progressive web app (PWA) that can be used to track your budget both on- and offline. 
 
 ![Budget App](public/images/budget_top.png)
 
@@ -30,16 +30,14 @@ Email: rpounceyjr@gmail.com
 
 ## **Usage** <a name="usage"></a>
 
-Fitness tracker is a workout-tracking app that allows the user to create and update workouts, as well as view statistics culled from previous workouts.  From the index page, information about the previous workout is pulled from the database and appended to the DOM. If no workout information exists, a message informs the user that there is no existing workout information.  The user can click one of two buttons, "Continue Workout" or "New Workout."  Continuing a workout redirects the user to the exercise page, passing the ID of the continued workout as a query string.  Starting a new workout creates a POST request which creates the new workout document in the database, passes the new workout's ID as a query string, and directs the user to the exercise page.
 
 ![Budget IndexedDB](public/images/budget_middle.png)
 
-From the exercise page, the user inputs information about the workout, including whether the workout was a cardio or resistance exercise, the name of the exercise, amount of weight lifted,
-duration of the workout, etc.  Upon clicking either the "Complete" or "Add Exercise" button a PUT request is initiated which uses the ID from the query string as a request parameter and pushes the exercises from the request body into the exercise array of the corresponding database document.  Clicking the "Add Exercise" button allows the user to add more exercises, while the "Complete" button redirects the user to the index page after the update.
+Budget Tracker allows the user to create and save transactions.  Users create a transaction name and amount, and specify whether the transaction is a deposit or withdrawal.  With an online connection, the transaction is immediately stored as a document in a MongoDB database.  Without a connection, the transaction is stored in IndexedDB.  A listener on the window object in the db.js file listens for an online connection and sends the information from the IndexedDB object store to the database when the app regains a connection.
 
 ![Budget Mobile App](public/images/budget_app_pic.png)
 
-In addition to adding and updating workouts, the user may also use this app to view information regarding previous workouts.  Clicking the "Dashboard" button in the navbar of the index page sends the user to the stats page where they may view information such as names of exercises performed, amount of weight lifted, and time spent working out.  The information is displayed in various graphs for easy visualization of these statistics.
+Along with the ability to store transactions offline, the webmanifest also provides the information necessary to save the Budget Tracker as a stand-alone app.  The app can be downloaded on mobile devices and functions just as it does in the browser.
 
 ## **Contributing** <a name="contributing"></a>
 
