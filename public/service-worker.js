@@ -3,7 +3,7 @@ const FILES_TO_CACHE = ["/", "/index.html", "/index.js", "styles.css", "/icons/i
 const CACHE_NAME = "static-cache-v2";
 const DATA_CACHE_NAME = "data-cache-v1";
 
-// install
+// Installs the service worker and opens the cache
 self.addEventListener("install", function (evt) {
   evt.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
@@ -15,7 +15,7 @@ self.addEventListener("install", function (evt) {
   self.skipWaiting();
 });
 
-// activate
+// Activates the service worker and removes any old caches 
 self.addEventListener("activate", function (evt) {
   evt.waitUntil(
     caches.keys().then(keyList => {
@@ -33,7 +33,7 @@ self.addEventListener("activate", function (evt) {
   self.clients.claim();
 });
 
-// fetch
+// Fetch data and store it in the cache
 self.addEventListener("fetch", function (evt) {
   if (evt.request.url.includes("/api/")) {
     evt.respondWith(

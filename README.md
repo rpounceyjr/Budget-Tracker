@@ -2,7 +2,7 @@
 
 ### **by Roger Pouncey** 
 
-The Budget Tracker is a progressive web app (PWA) that can be used to track your budget both on- and offline. 
+The Budget Tracker is a progressive web app (PWA) that can be used to track your budget both on- and offline.  It uses Node and Express for the backend, and uses a MongoDB database.  IndexedDB is used for offline data storage, and a webmanifest and service worker are used to cache data and provide the necessary data to use the Budget Tracker as a stand-alone app.
 
 ![Budget App](public/images/budget_top.png)
 
